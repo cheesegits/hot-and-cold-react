@@ -1,9 +1,9 @@
 import { combineReducers } from "redux";
 
-import guessing from "./guessingReducer";
-import checking from "./checkingReducer";
+import { guessing } from "./guessingReducer";
+import { checking } from "./checkingReducer";
 
-export default combineReducers({
+export const gameReducers = combineReducers({
   guessing,
   checking
 });

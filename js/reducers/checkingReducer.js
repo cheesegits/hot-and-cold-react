@@ -6,7 +6,7 @@ function randomNumberGenerator() {
 
 var winningNumber = randomNumberGenerator();
 
-export default (
+export const checking = (
   state = {
     guess: null,
     actual: winningNumber
@@ -15,8 +15,9 @@ export default (
 ) => {
   switch (action.type) {
     case "USER_GUESS": {
-      // compare action.guess with state.actual
-      // return {...state, action.guess}
+      return { ...state, guess: action.guess };
     }
+    default:
+      return { state };
   }
 };

@@ -1,6 +1,6 @@
 import { USER_GUESS } from "../actions/index";
 
-export default (
+export const guessing = (
   state = {
     guesses: [],
     guessCount: 0
@@ -9,7 +9,9 @@ export default (
 ) => {
   switch (action.type) {
     case "USER_GUESS": {
-      // return {...state, action.guess}
+      return { ...state, guessses: [...state.guesses, action.guess] };
     }
+    default:
+      return { state };
   }
 };
