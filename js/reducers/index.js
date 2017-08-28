@@ -8,17 +8,9 @@ export const gameReducers = combineReducers({
   checking
 });
 
-/* Missing Reducers/state for:
-
-  - gameInfo
-    - modal visible default is false, becomes true when "What ?" button is clicked
-      - change to false when "Got it" button is clicked
-
-  - New Game
-    - return to default state
-    - generate new random number    
-    - reset UI
-      - clear guesses
-      - clear guess count
-      - clear warmer/colder
-*/
+export const rootReducer = (state, action) => {
+  if (action.type === "NEW_GAME") {
+    state = undefined;
+  }
+  return gameReducers(state, action);
+};

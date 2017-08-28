@@ -1,5 +1,3 @@
-import { USER_GUESS } from "../actions/index";
-
 export const guessing = (
   state = {
     guesses: [],
@@ -9,9 +7,16 @@ export const guessing = (
 ) => {
   switch (action.type) {
     case "USER_GUESS": {
-      return { ...state, guessses: [...state.guesses, action.guess] };
+      return Object.assign({}, state, {
+        guesses: [...state.guesses, action.guess],
+        guessCount: state.guessCount + 1
+      });
+    }
+    case "NEW_GAME": {
+      console.log("guessingReducer state: ", state);
+      return state;
     }
     default:
-      return { state };
+      return state;
   }
 };
